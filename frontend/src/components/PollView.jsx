@@ -8,7 +8,6 @@ import { useAuth } from '../context/AuthContext';
 export default function PollView({ pollId, onBack }) {
   const [poll, setPoll] = useState(null);
   const { user } = useAuth();
-  // const [userId] = useState('a0428020-adb5-43b1-a107-c01539ae2613');
   const [toast, setToast] = useState(null);
 
   useEffect(() => {

@@ -14,7 +14,6 @@ app.use('/auth', authRoutes);
 
 app.use('/users', userRoutes);
 app.use('/polls', pollRoutes);
-// vote endpoint lives under /polls/:pollId/vote
 app.use('/polls', voteRoutes);
 
 app.get('/', (req, res) => res.json({ ok: true }));

@@ -2,7 +2,6 @@ const express = require('express');
 const prisma = require('../prismaClient');
 const router = express.Router();
 
-// Create a poll with options
 router.post('/', async (req, res) => {
   try {
     const { question, options, creatorId, isPublished } = req.body;
@@ -23,13 +22,11 @@ router.post('/', async (req, res) => {
   }
 });
 
-// List polls
 router.get('/', async (req, res) => {
   const polls = await prisma.poll.findMany({ take: 50, orderBy: { createdAt: 'desc' }, select: { id: true, question: true, isPublished: true, createdAt: true }});
   res.json(polls);
 });
 
-// Get poll with options & vote counts
 router.get('/:id', async (req, res) => {
   try {
     const pollId = req.params.id;
@@ -39,7 +36,6 @@ router.get('/:id', async (req, res) => {
     });
     if (!poll) return res.status(404).json({ error: 'Poll not found' });
 
-    // counts per option
     const counts = await prisma.vote.groupBy({ by: ['pollOptionId'], where: { pollId }, _count: { pollOptionId: true }});
     const map = {};
     counts.forEach(c => { map[c.pollOptionId] = c._count.pollOptionId; });

@@ -6,7 +6,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import CreatePoll from "./components/CreatePoll";
 import PollList from "./components/PollList";
-import "./App.css"; // 👈 import styles
+import "./App.css"; 
 
 function PrivateRoute({ children }) {
   const { user } = useAuth();

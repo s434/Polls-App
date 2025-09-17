@@ -14,12 +14,12 @@ export function AuthProvider({ children }) {
       });
 
       if (!res.ok) {
-        return false; // login failed
+        return false; 
       }
 
       const data = await res.json();
-      setUser(data); // save logged in user
-      return true;   // ✅ important: return success flag
+      setUser(data);
+      return true;   
     } catch (err) {
       console.error("Login error:", err);
       return false;

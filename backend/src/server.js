@@ -8,7 +8,6 @@ const PORT = process.env.PORT || 4000;
 const server = http.createServer(app);
 
 const io = new Server(server, { cors: { origin: ['http://localhost:5173'], methods: ['GET','POST'] }});
-// allow access in dev from Vite (localhost:5173). Use '*' or add domains for production.
 
 app.set('io', io);
 

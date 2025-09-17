@@ -7,7 +7,7 @@ export default function CreatePoll({ onCreated }) {
   const [question, setQuestion] = useState('');
   const [options, setOptions] = useState(['','']);
   const { user } = useAuth();
-  // const [creatorId] = useState('a0428020-adb5-43b1-a107-c01539ae2613');
+
   const [toast, setToast] = useState(null);
 
   const addOption = () => setOptions([...options, '']);

@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt');
 const prisma = require('../prismaClient');
 const router = express.Router();
 
-// Register (sign up)
 router.post('/register', async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -19,7 +18,6 @@ router.post('/register', async (req, res) => {
       data: { name, email, passwordHash }
     });
 
-    // hide passwordHash in response
     const { passwordHash: _ph, ...userSafe } = user;
     res.status(201).json(userSafe);
   } catch (err) {
@@ -28,7 +26,6 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Login
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;

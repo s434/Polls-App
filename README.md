@@ -49,7 +49,7 @@ cd Polls-App
 Create a .env file in the root:
 
 ```
-DATABASE_URL="postgresql://user:password@localhost:5432/pollsdb"
+DATABASE_URL="postgresql://postgres:[your_password]@localhost:5432/polling_app?schema=public"
 PORT=4000
 ```
 

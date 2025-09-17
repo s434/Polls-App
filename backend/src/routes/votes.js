@@ -2,21 +2,18 @@ const express = require('express');
 const prisma = require('../prismaClient');
 const router = express.Router();
 
-// POST /polls/:pollId/vote
 router.post('/:pollId/vote', async (req, res) => {
   try {
     const { userId, pollOptionId } = req.body;
     const { pollId } = req.params;
     if (!userId || !pollOptionId) return res.status(400).json({ error: 'userId and pollOptionId required' });
 
-    // validate option belongs to poll
     const option = await prisma.pollOption.findUnique({ where: { id: pollOptionId }});
     if (!option || option.pollId !== pollId) return res.status(400).json({ error: 'Option does not belong to poll' });
 
     try {
       const vote = await prisma.vote.create({ data: { userId, pollId, pollOptionId } });
 
-      // broadcast updated counts to clients in poll room
       const io = req.app.get('io');
       if (io) {
         const counts = await prisma.vote.groupBy({ by: ['pollOptionId'], where: { pollId }, _count: { pollOptionId: true }});
@@ -29,7 +26,6 @@ router.post('/:pollId/vote', async (req, res) => {
 
       res.status(201).json({ success: true, voteId: vote.id });
     } catch (err) {
-      // handle unique constraint (already voted)
       if (err.code === 'P2002' || (err.meta && err.meta.target && err.meta.target.includes('one_vote_per_user_per_poll'))) {
         return res.status(409).json({ error: 'You has already voted on this poll' });
       }
