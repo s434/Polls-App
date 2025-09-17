@@ -33,8 +33,10 @@ This project is a real-time polling backend service that allows users to create 
 
 ## Setup Instructions
 1. Clone the repository
-``` git clone https://github.com/s434/Polls-App.git
-cd Polls-App ```
+```
+git clone https://github.com/s434/Polls-App.git
+cd Polls-App
+```
 
 2. Open the backend folder
 ```cd backend```
@@ -46,12 +48,16 @@ cd Polls-App ```
 
 Create a .env file in the root:
 
-```DATABASE_URL="postgresql://user:password@localhost:5432/pollsdb"
-PORT=4000```
+```
+DATABASE_URL="postgresql://user:password@localhost:5432/pollsdb"
+PORT=4000
+```
 
 5. Setup database with Prisma
-```npx prisma migrate dev --name init
-npx prisma generate```
+```
+npx prisma migrate dev --name init
+npx prisma generate
+```
 
 6. Run the server
 ```npm run dev```
@@ -60,8 +66,10 @@ npx prisma generate```
 ```cd frontend```
 
 8. Install dependencies
-```npm install
-npm install axios socket.io-client```
+```
+npm install
+npm install axios socket.io-client
+```
 
 9. Run Frontend
 ```npm run dev```
@@ -72,6 +80,8 @@ npm install axios socket.io-client```
 
 Example:
 
-```curl -X POST http://localhost:4000/auth/register \
+```
+curl -X POST http://localhost:4000/auth/register \
 -H "Content-Type: application/json" \
--d '{"name":"Jane","email":"Jane@mail.com","password":"pass123"}'```
+-d '{"name":"Jane","email":"Jane@mail.com","password":"pass123"}'
+```
