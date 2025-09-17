@@ -15,6 +15,7 @@ function PrivateRoute({ children }) {
 
 export default function App() {
   const [selectedPoll, setSelectedPoll] = useState(null);
+  const [refreshPolls, setRefreshPolls] = useState(false);
 
   return (
     <Router>
@@ -37,11 +38,11 @@ export default function App() {
                       <div className="poll-sections">
                         <div className="poll-section">
                           <h2>Create Poll</h2>
-                          <CreatePoll onCreated={() => {}} />
+                          <CreatePoll onCreated={() => setRefreshPolls(prev => !prev)} />
                         </div>
                         <div className="poll-section">
                           <h2>Available Polls</h2>
-                          <PollList onSelect={setSelectedPoll} />
+                          <PollList key={refreshPolls} onSelect={setSelectedPoll} />
                         </div>
                       </div>
                     ) : (
