@@ -1,0 +1,98 @@
+/* Global body styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  margin: 0;
+  padding: 0;
+  color: #2c3e50;
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+  font-size: 16px;
+}
+
+/* Inputs */
+input {
+  font-family: inherit;
+  font-size: 16px;
+  outline: none;
+}
+
+/* Headings */
+h2, h3 {
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+/* Full app wrapper */
+.app-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  min-height: 90vh;
+  
+}
+
+/* Card container */
+.card-container {
+  background: rgba(255, 255, 255, 0.6); /* white with opacity */
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.app-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Poll sections (Create + List side by side) */
+.poll-sections {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 120px;
+}
+
+/* Each section */
+.poll-section {
+  flex: 1;
+  
+  background: #fafafa;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.poll-section h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #444;
+}
+/* 📱 Responsive stacking */
+@media (max-width: 750px) {
+  .card-container{
+    width: 80%;
+  }
+  .poll-sections {
+    flex-direction: column;   /* stack vertically */
+    width: 90%;
+  }
+
+  .poll-section {
+    width: 100%;              /* take full width */
+  }
+}
