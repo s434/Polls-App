@@ -1,4 +1,4 @@
-### Real-Time Polling Application API
+# Real-Time Polling Application API
 This project is a real-time polling backend service that allows users to create polls, vote on poll options, and see live-updating results via WebSockets. The backend provides a RESTful API for core operations and a WebSocket layer for real-time updates.
 
 ## Technologies Used
@@ -15,21 +15,21 @@ This project is a real-time polling backend service that allows users to create 
 ## REST API Endpoints
 1. Users
 
-- POST /auth/register → Register new user
+- ``` POST /auth/register ``` → Register new user
 
-- POST /auth/login → Log in
+- ``` POST /auth/login ``` → Log in
 
 2. Polls
 
-- POST /polls → Create a poll
+- ``` POST /polls ``` → Create a poll
 
-- GET /polls → Retrieve all polls
+- ``` GET /polls ``` → Retrieve all polls
 
-- GET /polls/:id → Retrieve a specific poll
+- ``` GET /polls/:id ``` → Retrieve a specific poll
 
 3. Votes
 
-- POST /polls/:id/vote → Vote for a poll option
+- ```POST /polls/:id/vote```  → Vote for a poll option
 
 ## Setup Instructions
 1. Clone the repository
